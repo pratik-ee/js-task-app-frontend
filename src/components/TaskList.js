@@ -41,7 +41,7 @@ const TaskList = () => {
     const getTasks=async()=>{
       setIsLoading(true);
       try {
-        const{data}=await axios.get(`${URL}`);
+        const{data}=await axios.get(`${URL}/api/task`);
         setTasks(data)
         console.log(data);
         setIsLoading(false)
@@ -51,7 +51,7 @@ const TaskList = () => {
     };
     const deleteTask=async(id)=>{
      try {
-      await axios.delete(`${URL}/${id}`);
+      await axios.delete(`${URL}/api/task/${id}`);
       getTasks()
      } catch (error) {
       toast.error(error);
